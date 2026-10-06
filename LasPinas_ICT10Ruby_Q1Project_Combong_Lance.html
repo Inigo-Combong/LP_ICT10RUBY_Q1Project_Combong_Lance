@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q1 Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+<style>
+    
+        .gradient-banner {
+            background: linear-gradient(135deg, #db2777 0%, #e11d48 50%, #f43f5e 100%);
+        }
+        .gradient-btn {
+            background: linear-gradient(90deg, #ec4899 0%, #f43f5e 100%);
+            transition: opacity 0.2s ease;
+        }
+        .gradient-btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body class="bg-[#831843] text-gray-800 min-h-screen flex flex-col font-sans">
+
+    <header class="bg-[#500724] text-white px-6 py-4 flex justify-between items-center shadow-md">
+        <h1 class="text-xl font-bold tracking-wide">K-Mart</h1>
+        <nav class="flex gap-6 text-sm font-medium">
+            <button id="navSku" onclick="switchTab('sku')" class="text-pink-200 hover:text-white transition-colors">
+                SKU Generator
+            </button>
+            <button id="navReceipt" onclick="switchTab('receipt')" class="text-white font-semibold underline underline-offset-4">
+                Receipt Generator
+            </button>
+        </nav>
+    </header>
+
+
+    <main class="flex-1 flex justify-center items-center p-4 my-8">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden border border-pink-100">
+
+                        <div id="receiptTab" class="block">
+                <!-- Header Card Banner -->
+                <div class="gradient-banner text-white text-center py-8 px-6">
+                    <h2 class="text-2xl font-bold tracking-wide">K-Mart Korean Convenience Store</h2>
+                    <p class="text-xs text-pink-100 mt-1 opacity-90"> Online Order Form </p>
+                </div>
+
+               
+                <div class="p-6">
+                    <h3 class="text-gray-800 font-semibold mb-4 text-base">Menu</h3>
+                    
+                    
+                    <div class="space-y-3 mb-6">
+                        <label class="flex items-center justify-between p-3 border border-pink-100 rounded-xl hover:bg-pink-50 cursor-pointer transition-colors shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" name="menustuff" value="98" data-name="Buldak Carbonara" class="w-4 h-4 rounded text-pink-600 focus:ring-pink-500">
+                                <span class="text-sm font-medium text-gray-700">Buldak Carbonara</span>
+                            </div>
+                            <span class="text-sm font-bold text-pink-600">98Php</span>
+                        </label>
+
+                        <label class="flex items-center justify-between p-3 border border-pink-100 rounded-xl hover:bg-pink-50 cursor-pointer transition-colors shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" name="menustuff" value="71" data-name="Kimchi" class="w-4 h-4 rounded text-pink-600 focus:ring-pink-500">
+                                <span class="text-sm font-medium text-gray-700">Kimchi</span>
+                            </div>
+                            <span class="text-sm font-bold text-pink-600">71Php</span>
+                        </label>
+
+                        <label class="flex items-center justify-between p-3 border border-pink-100 rounded-xl hover:bg-pink-50 cursor-pointer transition-colors shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" name="menustuff" value="100" data-name="Melon Cream Soda" class="w-4 h-4 rounded text-pink-600 focus:ring-pink-500">
+                                <span class="text-sm font-medium text-gray-700">Melon Cream Soda</span>
+                            </div>
+                            <span class="text-sm font-bold text-pink-600">100Php</span>
+                        </label>
+
+                        <label class="flex items-center justify-between p-3 border border-pink-100 rounded-xl hover:bg-pink-50 cursor-pointer transition-colors shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" name="menustuff" value="85" data-name="Fish Cake" class="w-4 h-4 rounded text-pink-600 focus:ring-pink-500">
+                                <span class="text-sm font-medium text-gray-700">Fish Cake</span>
+                            </div>
+                            <span class="text-sm font-bold text-pink-600">85Php</span>
+                        </label>
+
+                        <label class="flex items-center justify-between p-3 border border-pink-100 rounded-xl hover:bg-pink-50 cursor-pointer transition-colors shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" name="menustuff" value="87" data-name="Ottogi Jin Ramen" class="w-4 h-4 rounded text-pink-600 focus:ring-pink-500">
+                                <span class="text-sm font-medium text-gray-700">Ottogi Jin Ramen</span>
+                            </div>
+                            <span class="text-sm font-bold text-pink-600">87Php</span>
+                        </label>
+
+                        <label class="flex items-center justify-between p-3 border border-pink-100 rounded-xl hover:bg-pink-50 cursor-pointer transition-colors shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" name="menustuff" value="100" data-name="Shin Ramyun" class="w-4 h-4 rounded text-pink-600 focus:ring-pink-500">
+                                <span class="text-sm font-medium text-gray-700">Shin Ramyun</span>
+                            </div>
+                            <span class="text-sm font-bold text-pink-600">100Php</span>
+                        </label>
+                    </div>
+
+                    
+                    <button onclick="generateReceipt()" class="w-full gradient-btn text-white font-semibold py-3 px-4 rounded-xl shadow-md">
+                        Create Order
+                    </button>
+
+                    
+                    <div id="receiptOutput" class="mt-6 text-center text-xs text-gray-500 p-4 border border-dashed border-pink-200 rounded-xl min-h-[60px] flex items-center justify-center">
+                        (Note: The receipt will be displayed here.)
+                    </div>
+                </div>
+            </div>
+
+
+        <div id="skuTab" class="hidden">
+                <div class="gradient-banner text-white text-center py-8 px-6">
+                    <h2 class="text-2xl font-bold tracking-wide">SKU Generator</h2>
+                    <p class="text-xs text-pink-100 mt-1 opacity-90">K-Mart Product Management</p>
+                </div>
+
+                <div class="p-6 space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-600 mb-1">Category</label>
+                        <select id="skuCategory" class="w-full border border-pink-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            <option value="RAM">Ramen / Noodles</option>
+                            <option value="BEV">Beverages</option>
+                            <option value="SNK">Snacks & Sides</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-600 mb-1">Product Name</label>
+                        <select id="skuProduct" class="w-full border border-pink-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            <option value="BC">Buldak Carbonara</option>
+                            <option value="KC">Kimchi</option>
+                            <option value="MCS">Melon Cream Soda</option>
+                            <option value="FC">Fish Cake</option>
+                            <option value="OJR">Ottogi Jin Ramen</option>
+                            <option value="SR">Shin Ramyun</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-600 mb-1">Stock Quantity</label>
+                        <input type="number" id="skuStock" placeholder="e.g. 50" class="w-full border border-pink-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    </div>
+
+                    <button onclick="generateSKU()" class="w-full gradient-btn text-white font-semibold py-3 px-4 rounded-xl shadow-md">
+                        Generate SKU
+                    </button>
+
+                    <div id="skuOutput" class="mt-6 text-center text-xs text-gray-500 p-4 border border-dashed border-pink-200 rounded-xl min-h-[60px] flex items-center justify-center">
+                        (Note: The generated SKU will be displayed here.)
+                    </div>
+                
+        
+
+        </div>
+    </main>
+
+    <script>
+        
+        function switchTab(tab) {
+            const receiptTab = document.getElementById('receiptTab');
+            const skuTab = document.getElementById('skuTab');
+            const navReceipt = document.getElementById('navReceipt');
+            const navSku = document.getElementById('navSku');
+
+            if (tab === 'receipt') {
+                receiptTab.classList.remove('hidden');
+                receiptTab.classList.add('block');
+                skuTab.classList.remove('block');
+                skuTab.classList.add('hidden');
+
+                navReceipt.className = 'text-white font-semibold underline underline-offset-4';
+                navSku.className = 'text-pink-200 hover:text-white transition-colors';
+            } else {
+                skuTab.classList.remove('hidden');
+                skuTab.classList.add('block');
+                receiptTab.classList.remove('block');
+                receiptTab.classList.add('hidden');
+
+                navSku.className = 'text-white font-semibold underline underline-offset-4';
+                navReceipt.className = 'text-pink-200 hover:text-white transition-colors';
+            }
+        }
+
+       
+        function generateReceipt() {
+            const checkboxes = document.querySelectorAll('input[name="menustuff"]:checked');
+            const output = document.getElementById('receiptOutput');
+
+            if (checkboxes.length === 0) {
+                output.className = "mt-6 text-center text-xs text-red-500 p-4 border border-dashed border-pink-200 rounded-xl min-h-[60px] flex items-center justify-center";
+                output.innerText = "Please select at least one item.";
+                return;
+            }
+
+            let subtotal = 0;
+            let itemsHTML = '<div class="w-full text-left font-sans space-y-2 text-xs text-gray-700">';
+            itemsHTML += '<h4 class="font-bold text-center text-sm border-b pb-2 mb-2">Order Summary</h4>';
+
+            checkboxes.forEach(item => {
+                const name = item.getAttribute('data-name');
+                const price = parseFloat(item.value);
+                subtotal += price;
+                itemsHTML += `<div class="flex justify-between"><span>${name}</span><span>${price.toFixed(2)} Php</span></div>`;
+            });
+
+            const vat = subtotal * 0.12;
+            const total = subtotal + vat;
+
+            itemsHTML += `<hr class="my-2 border-pink-100">`;
+            itemsHTML += `<div class="flex justify-between"><span>Subtotal:</span><span>${subtotal.toFixed(2)} Php</span></div>`;
+            itemsHTML += `<div class="flex justify-between text-pink-600"><span>12% VAT:</span><span>+${vat.toFixed(2)} Php</span></div>`;
+            itemsHTML += `<div class="flex justify-between font-bold text-sm text-gray-900 border-t pt-2 mt-1"><span>Total Amount:</span><span>${total.toFixed(2)} Php</span></div>`;
+            itemsHTML += `</div>`;
+
+            output.className = "mt-6 p-4 border border-pink-200 rounded-xl bg-pink-50/50 flex items-center justify-center";
+            output.innerHTML = itemsHTML;
+        }
+
+        
+        function generateSKU() {
+            const category = document.getElementById('skuCategory').value;
+            const product = document.getElementById('skuProduct').value;
+            const stock = document.getElementById('skuStock').value || '0';
+            const output = document.getElementById('skuOutput');
+
+            const skuCode = `KM-${category}-${product}-${stock.padStart(3, '0')}`;
+
+            output.className = "mt-6 p-4 border border-pink-200 rounded-xl bg-pink-50/50 flex flex-col items-center justify-center text-center";
+            output.innerHTML = `
+                <span class="text-xs text-gray-500 mb-1">Generated SKU Code:</span>
+                <span class="text-base font-bold text-pink-600 tracking-wider font-mono">${skuCode}</span>
+            `;
+        }   
+        
+</script>
+</body>
+</html>
